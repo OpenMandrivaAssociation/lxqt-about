@@ -5,7 +5,7 @@ Version: 0.9.0
 Release: 0.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 1
+Release: 2
 Source0: http://lxqt.org/downloads/lxqt/%{version}/%{name}-%{version}.tar.xz
 %endif
 Summary: About application for the LXQt desktop
@@ -17,6 +17,8 @@ BuildRequires: cmake(lxqt)
 BuildRequires: qt5-devel
 BuildRequires: cmake(Qt5LinguistTools)
 BuildRequires: cmake(Qt5X11Extras)
+BuildRequires: desktop-file-utils
+%rename	razorqt-about
 
 %description
 About application for the LXQt desktop
@@ -34,6 +36,12 @@ About application for the LXQt desktop
 
 %install
 %makeinstall_std -C build
+
+desktop-file-edit \
+	--remove-category=LXQt --add-category=X-LXQt \
+	--remove-category=Help --add-category=X-Help \
+	--remove-only-show-in=LXQt --add-only-show-in=X-LXQt \
+	%{buildroot}%{_datadir}/applications/lxqt-about.desktop
 
 %files
 %{_bindir}/lxqt-about
