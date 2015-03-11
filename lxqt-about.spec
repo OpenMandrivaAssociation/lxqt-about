@@ -18,6 +18,7 @@ BuildRequires: cmake(lxqt)
 BuildRequires: cmake(Qt5Widgets)
 BuildRequires: cmake(Qt5DBus)
 BuildRequires: cmake(Qt5X11Extras)
+BuildRequires: cmake(Qt5LinguistTools)
 %rename	razorqt-about
 
 %description
