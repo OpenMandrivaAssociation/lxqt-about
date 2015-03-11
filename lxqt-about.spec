@@ -5,7 +5,7 @@ Version: 0.9.0
 Release: 0.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 3
+Release: 4
 Source0: http://lxqt.org/downloads/lxqt/%{version}/%{name}-%{version}.tar.xz
 %endif
 Summary: About application for the LXQt desktop
@@ -13,14 +13,15 @@ URL: http://lxqt.org/
 License: GPL
 Group: Graphical desktop/KDE
 BuildRequires: cmake
+BuildRequires: qmake5
 BuildRequires: cmake(lxqt)
-BuildRequires: qt5-devel
-BuildRequires: cmake(Qt5LinguistTools)
+BuildRequires: cmake(Qt5Widgets)
+BuildRequires: cmake(Qt5DBus)
 BuildRequires: cmake(Qt5X11Extras)
 %rename	razorqt-about
 
 %description
-About application for the LXQt desktop
+About application for the LXQt desktop.
 
 %prep
 %if %git
@@ -28,7 +29,7 @@ About application for the LXQt desktop
 %else
 %setup -q
 %endif
-%cmake -DUSE_QT5:BOOL=ON
+%cmake_qt5
 
 %build
 %make -C build
