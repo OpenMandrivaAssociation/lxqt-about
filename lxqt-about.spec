@@ -20,6 +20,7 @@ BuildRequires: cmake(Qt5Widgets)
 BuildRequires: cmake(Qt5DBus)
 BuildRequires: cmake(Qt5X11Extras)
 BuildRequires: cmake(Qt5LinguistTools)
+Requires: lxqt-l10n
 %rename	razorqt-about
 
 %description
@@ -32,7 +33,7 @@ About application for the LXQt desktop.
 %setup -q
 %endif
 
-%cmake_qt5 -G Ninja
+%cmake_qt5 -DPULL_TRANSLATIONS=NO -G Ninja
 
 %build
 # Need to be in a UTF-8 locale so grep (used by the desktop file
@@ -50,9 +51,6 @@ export LANG=en_US.utf-8
 export LC_ALL=en_US.utf-8
 %ninja_install -C build
 
-%find_lang lxqt-about --with-qt
-
-%files -f lxqt-about.lang
+%files
 %{_bindir}/lxqt-about
 %{_datadir}/applications/lxqt-about.desktop
-%dir %{_datadir}/lxqt/translations/lxqt-about
