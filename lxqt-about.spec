@@ -20,7 +20,7 @@ BuildRequires: cmake(Qt5Widgets)
 BuildRequires: cmake(Qt5DBus)
 BuildRequires: cmake(Qt5X11Extras)
 BuildRequires: cmake(Qt5LinguistTools)
-Requires: lxqt-l10n
+Obsoletes: lxqt-l10n < %{EVRD}
 %rename	razorqt-about
 
 %description
