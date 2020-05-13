@@ -1,12 +1,12 @@
 %define git 0
 Name: lxqt-about
-Version: 0.14.1
+Version: 0.15.0
 %if %git
-Release: 1.%git.1
+Release: 0.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 2
-Source0: https://downloads.lxqt.org/downloads/lxqt-about/%{version}/%{name}-%{version}.tar.xz
+Release: 1
+Source0: https://github.com/lxqt/lxqt-about/releases/download/%{version}/lxqt-about-%{version}.tar.xz
 %endif
 Summary: About application for the LXQt desktop
 URL: http://lxqt.org/
@@ -50,8 +50,10 @@ export LC_ALL=en_US.utf-8
 export LANG=en_US.utf-8
 export LC_ALL=en_US.utf-8
 %ninja_install -C build
-%find_lang %{name} --with-qt
+%find_lang %{name} --with-qt --all-name
 
 %files -f %{name}.lang
 %{_bindir}/lxqt-about
 %{_datadir}/applications/lxqt-about.desktop
+%lang(arn) %{_datadir}/lxqt/translations/lxqt-about/lxqt-about_arn.qm
+%lang(ast) %{_datadir}/lxqt/translations/lxqt-about/lxqt-about_ast.qm
