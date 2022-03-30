@@ -55,5 +55,3 @@ export LC_ALL=en_US.utf-8
 %files -f %{name}.lang
 %{_bindir}/lxqt-about
 %{_datadir}/applications/lxqt-about.desktop
-%lang(arn) %{_datadir}/lxqt/translations/lxqt-about/lxqt-about_arn.qm
-%lang(ast) %{_datadir}/lxqt/translations/lxqt-about/lxqt-about_ast.qm
