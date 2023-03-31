@@ -5,7 +5,7 @@ Version: 1.2.0
 Release: 1.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 3
+Release: 4
 Source0: https://github.com/lxqt/lxqt-about/releases/download/%{version}/lxqt-about-%{version}.tar.xz
 %endif
 Summary: About application for the LXQt desktop
