@@ -1,11 +1,11 @@
 %define git 0
 Name: lxqt-about
-Version: 1.2.0
+Version: 1.3.0
 %if %git
 Release: 1.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 4
+Release: 1
 Source0: https://github.com/lxqt/lxqt-about/releases/download/%{version}/lxqt-about-%{version}.tar.xz
 %endif
 Summary: About application for the LXQt desktop
