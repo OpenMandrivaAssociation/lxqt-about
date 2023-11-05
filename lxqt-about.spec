@@ -1,13 +1,12 @@
-%define git 0
+#define git 0
 Name: lxqt-about
 Version: 1.4.0
-%if %git
-Release: 1.%git.1
+%if 0%{?git:1}
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 1
 Source0: https://github.com/lxqt/lxqt-about/releases/download/%{version}/lxqt-about-%{version}.tar.xz
 %endif
+Release: %{?git:0.%{git}.}1
 Summary: About application for the LXQt desktop
 URL: http://lxqt.org/
 License: GPL
@@ -27,11 +26,7 @@ Obsoletes: lxqt-l10n < %{EVRD}
 About application for the LXQt desktop.
 
 %prep
-%if %git
-%autosetup -p1 -n %{name}-%{git}
-%else
-%autosetup -p1
-%endif
+%autosetup -p1 -n %{name}-%{?git:%{git}}%{!?git:%{version}}
 
 %cmake_qt5 -DPULL_TRANSLATIONS=NO -G Ninja
 
