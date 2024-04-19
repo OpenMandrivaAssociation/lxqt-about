@@ -1,6 +1,6 @@
 #define git 0
 Name: lxqt-about
-Version: 1.4.0
+Version: 2.0.0
 %if 0%{?git:1}
 Source0: %{name}-%{git}.tar.xz
 %else
@@ -12,15 +12,12 @@ URL: http://lxqt.org/
 License: GPL
 Group: Graphical desktop/KDE
 BuildRequires: cmake
-BuildRequires: qmake5
 BuildRequires: ninja
 BuildRequires: cmake(lxqt)
-BuildRequires: cmake(Qt5Widgets)
-BuildRequires: cmake(Qt5DBus)
-BuildRequires: cmake(Qt5X11Extras)
-BuildRequires: cmake(Qt5LinguistTools)
+BuildRequires: cmake(Qt6Widgets)
+BuildRequires: cmake(Qt6DBus)
+BuildRequires: cmake(Qt6LinguistTools)
 Obsoletes: lxqt-l10n < %{EVRD}
-%rename	razorqt-about
 
 %description
 About application for the LXQt desktop.
@@ -28,7 +25,7 @@ About application for the LXQt desktop.
 %prep
 %autosetup -p1 -n %{name}-%{?git:%{git}}%{!?git:%{version}}
 
-%cmake_qt5 -DPULL_TRANSLATIONS=NO -G Ninja
+%cmake -DPULL_TRANSLATIONS=NO -G Ninja
 
 %build
 # Need to be in a UTF-8 locale so grep (used by the desktop file
