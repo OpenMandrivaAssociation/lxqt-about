@@ -6,7 +6,7 @@ Source0: %{name}-%{git}.tar.xz
 %else
 Source0: https://github.com/lxqt/lxqt-about/releases/download/%{version}/lxqt-about-%{version}.tar.xz
 %endif
-Release: %{?git:0.%{git}.}1
+Release: %{?git:0.%{git}.}2
 Summary: About application for the LXQt desktop
 URL: http://lxqt.org/
 License: GPL
