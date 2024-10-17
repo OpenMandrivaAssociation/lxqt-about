@@ -8,7 +8,7 @@ Source0: https://github.com/lxqt/lxqt-about/releases/download/%{version}/lxqt-ab
 %endif
 Release: %{?git:0.%{git}.}2
 Summary: About application for the LXQt desktop
-URL: http://lxqt.org/
+URL: https://lxqt.org/
 License: GPL
 Group: Graphical desktop/KDE
 BuildRequires: cmake
