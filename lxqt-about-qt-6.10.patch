@@ -1,0 +1,11 @@
+diff -up lxqt-about-2.2.0/CMakeLists.txt.omv~ lxqt-about-2.2.0/CMakeLists.txt
+--- lxqt-about-2.2.0/CMakeLists.txt.omv~	2025-10-12 14:05:14.849442793 +0200
++++ lxqt-about-2.2.0/CMakeLists.txt	2025-10-12 14:05:36.326339862 +0200
+@@ -29,6 +29,7 @@ set(UI_FILES
+ # Minimum versions
+ set(LXQT_MINIMUM_VERSION "2.2.0")
+ 
++find_package(Qt6 6.0.0 REQUIRED COMPONENTS GuiPrivate)
+ find_package(lxqt ${LXQT_MINIMUM_VERSION} REQUIRED)
+ 
+ include(LXQtPreventInSourceBuilds)
