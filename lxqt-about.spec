@@ -1,12 +1,12 @@
 #define git 0
 Name: lxqt-about
-Version: 2.2.0
+Version: 2.3.0
 %if 0%{?git:1}
 Source0: %{name}-%{git}.tar.xz
 %else
 Source0: https://github.com/lxqt/lxqt-about/releases/download/%{version}/lxqt-about-%{version}.tar.xz
 %endif
-Release: %{?git:0.%{git}.}3
+Release: %{?git:0.%{git}.}1
 Summary: About application for the LXQt desktop
 URL: https://lxqt.org/
 License: GPL
@@ -20,7 +20,6 @@ BuildOption: -DPULL_TRANSLATIONS:BOOL=OFF
 Obsoletes: lxqt-l10n < %{EVRD}
 
 %patchlist
-lxqt-about-qt-6.10.patch
 
 %description
 About application for the LXQt desktop.
